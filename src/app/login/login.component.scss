@@ -25,19 +25,75 @@ $color5:#F7DA7F;
           align-items: start;
 
           .login_image {
-            position: fixed;
+            position: relative;
             height: 100vh;
             z-index: 0;
+            right: 2rem;
+            animation: login_image 1s;
+         
+        
+
           }
 
-          .login_logo {
+          @keyframes login_image {
+            0% {
+              right: 100rem;
+              opacity: 0;
+              
+            }
+            40% {
+              right: 1rem;
+            }
+            60% {
+              right: 2.5rem;
+            }
+            80% {
+              right: 2rem;
+            }
+            100% {
+              right: 2rem;
+            }
+            ;
+          }
+
+
+          .login_logo{
             position: fixed;
             display: flex;
             margin: 0 10rem;
             justify-self: center;
             align-self: center;
             width: 350px;
+            
+              
+            transition: all .3s ease-in-out;
+            animation: login_logo .7s;
           }
+
+          @keyframes login_logo {
+            0% {
+              transform: scale(0);
+              opacity: 0;
+            } 
+            40%{
+              transform: scale(1.3);
+            }
+            60%{
+              transform: scale(.9);
+            }
+
+            80%{
+              transform: scale(1.1);
+            }
+
+            100% {
+              transform: scale(1);
+            }
+            ;
+          }
+
+         
+  
         }
 
         &:nth-child(2) {
@@ -141,6 +197,7 @@ $color5:#F7DA7F;
 
           &:nth-child(1) {
             display: none;
+
           }
 
           &:nth-child(2) {
