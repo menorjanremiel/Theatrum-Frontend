@@ -1,0 +1,135 @@
+$primary:#3f51b5;
+
+.container {
+
+    background-repeat: no-repeat;
+    background-position: start;
+    background-attachment: fixed;
+    background-size: 70vw 100vh;
+    width: 100vw;
+    height: 100vh;
+  
+    .row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      background-color: rgba(255, 255, 255, 0.075);
+  
+  
+  
+      @for $i from 1 through 12 {
+        .col-#{$i} {
+          grid-column: span #{$i};
+  
+          &:nth-child(1) {
+      
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+          img{
+            width: 70%;
+          }
+          }
+  
+          &:nth-child(2) {
+  
+            background-color: #fff;
+            height: 100vh;
+            width: 100%;
+  
+            form {
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              align-items: start;
+              height: 100vh;
+              min-width: 25rem;
+              margin: 0 10rem;
+  
+  
+  
+              .title {
+                text-align: start;
+                margin-bottom: 50px;
+  
+                span {
+                  display: block;
+  
+                  &:nth-child(1) {
+                    font-size: 30px;
+                    font-weight: 600;
+                    line-height: 1;
+                    color: $primary;
+                    margin: 10px 0;
+                  }
+  
+                  &:nth-child(2) {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #808080;
+                  }
+  
+                  &:nth-child(3) {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: $primary;
+                    margin: 30px 0;
+                  }
+                }
+              }
+  
+              mat-form-field,
+              button {
+                width: 100%;
+  
+                .hide-button {
+                  background-color: #fff;
+                  position: relative;
+                  bottom: 5px;
+                }
+  
+                input {
+                  padding: 4px 24px;
+                  width: 90%;
+                  height: 100%;
+  
+  
+                }
+              }
+  
+              .sign-in {
+                margin: 8px 0;
+                padding: 6px 12px;
+                font-weight: 500;
+  
+                mat-spinner {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+              }
+  
+              p {
+                position: relative;
+                margin: 0;
+                text-align: center;
+                font-weight: 600;
+                color: #808080;
+              }
+              a{
+                padding: 0;
+                color: #3f51b5;
+                font-size: .9rem;
+              }
+  
+              .btn-lk{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+  
+              }
+  
+  
+            }}}}}}

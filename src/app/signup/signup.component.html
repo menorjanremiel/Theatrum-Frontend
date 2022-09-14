@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6"> 
+      <img class="login_image" src="../../assets/login_wave.png" alt="" srcset="">
+
+      <div class="login_logo">
+        <img  src="../../assets/logo.svg" alt="" >
+      </div>
+      
+    </div>
+    <div class="col-6 ">
+      <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid">
+     
+       
+        <div class="title">
+          <span>Account Details </span>
+
+        </div>
+        <div>
+            <p>Personal Information</p>
+        </div>
+        
+        <br>
+        <div class="user-info">
+          <div class="acc_image">
+            <div>
+              <img class="user_Image" src="../../assets/user-svg.svg" alt="">
+            </div>
+         
+          </div>
+          <div>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Firstname</mat-label>
+              <input matInput type="text" required="true">
+              <mat-error>Enter a valid Username/Email</mat-error>
+            </mat-form-field>
+
+          </div>
+          <div class="btn-container">
+            <div class="btn">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+          </div>
+          <div>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Lastname</mat-label>
+                <input matInput type="text" required="true">
+                <mat-error>Enter a valid Username/Email</mat-error>
+              </mat-form-field>
+          </div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput type="email" required="true">
+          <mat-error>Enter a valid Username/Email</mat-error>
+        </mat-form-field>
+
+
+        <p>Account Information</p>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" required="true">
+          <mat-error>Enter a valid Username/Email</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" type="password" formControlName="password"
+            required="true">
+          <button class="hide-button" mat-icon-button matSuffix (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error>Password is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" type="password" formControlName="password"
+            required="true">
+          <button class="hide-button" mat-icon-button matSuffix (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error>Password is required</mat-error>
+        </mat-form-field>
+
+        <button class="sign-in" mat-raised-button type="submit" color="primary" [disabled]="clicked"
+          (click)="signup(); clicked = true">
+          <span *ngIf="clicked == false">Create Account</span>
+          <span *ngIf="clicked == true">Loading <mat-spinner class="spinner" [diameter]="20"></mat-spinner></span>
+
+        </button>
+        <p></p><br><br>
+        <footer>TTS version 1.0.0 </footer>
+      </form>
+    </div>
+  </div>
+</div>

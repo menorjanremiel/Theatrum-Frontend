@@ -1,0 +1,214 @@
+$color1:#6F1803;
+$color2:#BC3A04;
+$color3:#BC3A04;
+$color4:#ED7F2B;
+$color5:#F7DA7F;
+
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        grid-column: span #{$i};
+
+        &:nth-child(1) {
+          position: relative;
+          display: flex;
+          justify-content: start;
+          align-items: start;
+
+          .login_image {
+            position: relative;
+            height: 100vh;
+            z-index: 0;
+          }
+
+          .login_logo {
+            position: absolute;
+            display: flex;
+            margin: 0 10rem;
+            justify-self: center;
+            align-self: center;
+            width: 350px;
+
+          }
+        }
+
+        &:nth-child(2) {
+
+          // background-color: rgb(242, 1, 1);
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+          form {
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            padding: 3rem;
+
+            position: relative;
+
+
+            .user-info {
+              display: grid;
+              grid-template-columns: 144px auto;
+              grid-template-rows: 50px auto;
+              grid-gap: 24px 32px;
+              gap: 24px 32px;
+              margin: 0 0 0;
+
+              .btn {
+                width: 55px;
+              }
+
+              .btn-container {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+              }
+
+              .user_image {
+
+
+                width: 100%;
+                border-radius: 100%;
+              }
+
+              .acc_image {
+                grid-row-start: span 1;
+                width: 144px;
+              }
+            }
+
+            .title {
+              text-align: start;
+              margin-bottom: 50px;
+
+              span {
+                display: block;
+
+                &:nth-child(1) {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  line-height: 1rem;
+                  color: $color3;
+                  margin: .5rem 0;
+                }
+              }
+            }
+
+            mat-form-field,
+            button {
+              width: 100%;
+
+              .hide-button {
+                background-color: #fff;
+                position: relative;
+                bottom: 5px;
+              }
+
+              input {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+                height: 1rem;
+
+
+              }
+            }
+
+            .sign-in {
+              margin: 8px 0;
+              padding: 6px 12px;
+              font-weight: 500;
+
+              mat-spinner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+            }
+
+            p {
+              position: relative;
+              margin: 0;
+              text-align: start;
+              font-weight: 600;
+              color: $color2;
+            }
+
+            a {
+              padding: 0;
+              color: $color1;
+              font-size: .9rem;
+            }
+
+            .btn-lk {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+footer {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 992px) {
+  .container {
+    .row {
+      @for $i from 1 through 12 {
+        .col-#{$i} {
+
+          &:nth-child(1) {
+            display: none;
+          }
+
+          &:nth-child(2) {
+            grid-column: span 12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            form {
+
+              max-width: 600px;
+              width: 100%;
+              margin: auto;
+              position: relative;
+              padding: 2.5rem 1.5rem;
+
+              span {
+                text-align: start;
+              }
+            }
+          }
+
+
+        }
+      }
+    }
+  }
+}
