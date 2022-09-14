@@ -88,6 +88,11 @@
           </button>
           <mat-error>Password is required</mat-error>
         </mat-form-field>
+        <div class="btn-lk">
+          <a class="btn-clr" mat-button href="#" >Forgot Password?</a>
+            <p>Already have an account?<a class="btn-clr" mat-button [routerLink]="['/login']" >Sign in</a></p>
+         
+        </div>
 
         <button class="sign-in" mat-raised-button type="submit" color="primary" [disabled]="clicked"
           (click)="signup(); clicked = true">

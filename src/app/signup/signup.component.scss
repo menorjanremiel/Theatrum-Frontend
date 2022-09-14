@@ -18,6 +18,8 @@ $color5:#F7DA7F;
 
         &:nth-child(1) {
           position: relative;
+          height: 100vh;
+          width: 100%;
           display: flex;
           justify-content: start;
           align-items: start;
@@ -43,12 +45,11 @@ $color5:#F7DA7F;
         &:nth-child(2) {
           position: relative;
           // background-color: rgb(242, 1, 1);
-          height: 100vh;
-          width: 100%;
+ 
           display: flex;
           justify-content: center;
           align-items: center;
-          top: 7rem;
+          top: rem;
 
 
           form {
