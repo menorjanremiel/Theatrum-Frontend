@@ -1,0 +1,35 @@
+<div class="modal">
+  <button class="btn_close">
+    <mat-icon class="icon">close</mat-icon>
+  </button>
+  <div class="modalheader">
+    <mat-icon class="camicon">camera_alt</mat-icon>
+
+    <h4 class="modaltitle" id="uploadImageModalTitle">
+      Upload profile picture
+    </h4>
+  </div>
+  <div class="bodyModal">
+    <canvas
+      class="canvas"
+      width="250"
+      height="250"
+      style="width: 250px; height: 250px; cursor: grab; touch-action: none"
+    ></canvas>
+    <div class="">
+      <div class="">
+        <label class="" for="newImage">Upload</label
+        ><input
+          class=""
+          data-test="file"
+          id="newImage"
+          name="newImage"
+          type="file"
+        />
+      </div>
+      <button class="" id="saveImageButton" tabindex="0" type="button">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

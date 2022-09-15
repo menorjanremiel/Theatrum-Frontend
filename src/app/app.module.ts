@@ -11,13 +11,13 @@ import { MaterialModules } from './material.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ModalComponent } from './component/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
-
+    SignupComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
