@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, _closeDialogVia } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  constructor() {}
+  constructor(private matDialog: MatDialog, private route: Router) {}
 
   ngOnInit(): void {}
+
+  closeDialog() {
+    this.matDialog.closeAll()
+  }
 }
