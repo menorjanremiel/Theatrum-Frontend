@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {Title} from "@angular/platform-browser";
+import { User } from './user';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   clicked = false;
   
   
-  constructor(private route: Router, private formBuilder: FormBuilder, private loginData:LoginService, private snackBar: MatSnackBar) {
+  constructor(private route: Router, private formBuilder: FormBuilder, private data:DataService, private snackBar: MatSnackBar) {
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', [Validators.required,Validators.maxLength(50)]),
       password: new FormControl('', [Validators.required,Validators.maxLength(50)]),
@@ -28,35 +29,57 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    const loginData: User = {
+    const data: User = {
      email: this.loginForm.value.email,
       password: this.loginForm.value.password
     }
     
-      this.loginData.apiRequest('/api/auth/login', loginData).subscribe(
-        (res: any) => {
+      this.data.apiRequest('/api/auth/login', data).subscribe(
+        (res:any) => {
           if (res.status==true){
-             this.snackBar.open('Logged in successfully! Redirecting...', '', {
+                 this.snackBar.open('Logged in successfully! Redirecting...', '', {
+                  duration: 4000,
+                  verticalPosition: 'bottom',
+                  horizontalPosition: 'center',
+                });
+                
+              setTimeout(() => {
+                this.route.navigate(['home']);
+              }, 1000);
+            }
+          },
+        (err: any) => {
+          if (err.ok==false){
+            this.snackBar.open('Login failed, Check your credentials', '', {
               duration: 4000,
               verticalPosition: 'bottom',
               horizontalPosition: 'center',
             });
-            this.route.navigate(['home']);
-            console.log(res.status);
-            console.log(res);
-          } 
-        }
-      )
+            this.clicked = false;  
+          }
+        },
+      
+        // (res: any) => {
+        //   if (res.status==true){
+        //      this.snackBar.open('Logged in successfully! Redirecting...', '', {
+        //       duration: 4000,
+        //       verticalPosition: 'bottom',
+        //       horizontalPosition: 'center',
+        //     });
+            
+        //   setTimeout(() => {
+        //     this.route.navigate(['home']);
+        //   }, 1000);
+        // }else{
+         
+          
+        
+      
+        // }
+        // }
     
- 
     
-  }
-
-
-
+      );
+    }
   }
   
-  interface User {
-    email: string;
-    password: string;
-  }

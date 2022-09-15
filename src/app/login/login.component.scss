@@ -5,7 +5,7 @@ $color4:#ED7F2B;
 $color5:#F7DA7F;
 
 .container {
-  width: 100vw;
+
   height: 100vh;
 
   .row {
@@ -18,6 +18,8 @@ $color5:#F7DA7F;
 
         &:nth-child(1) {
           position: relative;
+          height: 100vh;
+          width: 100%;
           display: flex;
           justify-content: start;
           align-items: start;
@@ -26,68 +28,86 @@ $color5:#F7DA7F;
             position: relative;
             height: 100vh;
             z-index: 0;
+            right: 2rem;
+            animation: login_image 1s;
+         
+        
+
           }
 
-          .login_logo {
-            position: absolute;
+          @keyframes login_image {
+            0% {
+              right: 100rem;
+              opacity: 0;
+              
+            }
+            40% {
+              right: 1rem;
+            }
+            60% {
+              right: 2.5rem;
+            }
+            80% {
+              right: 2rem;
+            }
+            100% {
+              right: 2rem;
+            }
+            ;
+          }
+
+
+          .login_logo{
+            position: fixed;
             display: flex;
             margin: 0 10rem;
             justify-self: center;
             align-self: center;
             width: 350px;
-
+            
+              
+            transition: all .3s ease-in-out;
+            animation: login_logo .7s;
           }
+
+          @keyframes login_logo {
+            0% {
+              transform: scale(0);
+              opacity: 0;
+            } 
+            40%{
+              transform: scale(1.3);
+            }
+            60%{
+              transform: scale(.9);
+            }
+
+            80%{
+              transform: scale(1.1);
+            }
+
+            100% {
+              transform: scale(1);
+            }
+            ;
+          }
+
+         
+  
         }
 
         &:nth-child(2) {
-
-          // background-color: rgb(242, 1, 1);
-          height: 100vh;
-          width: 100%;
+          position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
 
-
           form {
+            position: relative;
             max-width: 600px;
             width: 100%;
-            margin: auto;
-            padding: 3rem;
-
-            position: relative;
-
-
-            .user-info {
-              display: grid;
-              grid-template-columns: 144px auto;
-              grid-template-rows: 50px auto;
-              grid-gap: 24px 32px;
-              gap: 24px 32px;
-              margin: 0 0 0;
-
-              .btn {
-                width: 55px;
-              }
-
-              .btn-container {
-                display: flex;
-                justify-content: end;
-                align-items: center;
-              }
-
-              .user_image {
-
-
-                width: 100%;
-                border-radius: 100%;
-              }
-
-              .acc_image {
-                grid-row-start: span 1;
-                width: 144px;
-              }
-            }
+            margin: 0;
+            padding: 4rem;
 
             .title {
               text-align: start;
@@ -122,12 +142,31 @@ $color5:#F7DA7F;
                 align-items: center;
                 width: 90%;
                 height: 1rem;
-
-
               }
             }
 
-            .sign-in {
+            .btn-lk {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+
+              a {
+                padding: 0;
+                color: $color1;
+                font-size: .9rem;
+              }
+
+              p {
+                position: relative;
+                margin: 0;
+                text-align: start;
+                font-weight: 600;
+                color: $color2;
+              }
+            }
+
+            .form_btn {
               margin: 8px 0;
               padding: 6px 12px;
               font-weight: 500;
@@ -140,41 +179,15 @@ $color5:#F7DA7F;
               }
             }
 
-            p {
-              position: relative;
-              margin: 0;
-              text-align: start;
-              font-weight: 600;
-              color: $color2;
+            footer {
+              text-align: center;
             }
-
-            a {
-              padding: 0;
-              color: $color1;
-              font-size: .9rem;
-            }
-
-            .btn-lk {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              width: 100%;
-
-            }
-
-
           }
         }
       }
     }
   }
 }
-
-
-footer {
-  text-align: center;
-}
-
 
 @media screen and (max-width: 992px) {
   .container {
@@ -184,6 +197,7 @@ footer {
 
           &:nth-child(1) {
             display: none;
+
           }
 
           &:nth-child(2) {
@@ -193,7 +207,6 @@ footer {
             align-items: center;
 
             form {
-
               max-width: 600px;
               width: 100%;
               margin: auto;
@@ -205,8 +218,6 @@ footer {
               }
             }
           }
-
-
         }
       }
     }
