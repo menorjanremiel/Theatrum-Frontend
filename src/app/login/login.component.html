@@ -1,51 +1,77 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <img class="login_image" src="../../assets/login_wave.png" alt="" srcset="">
+      <img
+        class="login_image"
+        src="../../assets/login_wave.png"
+        alt=""
+        srcset=""
+      />
 
       <div class="login_logo">
-        <img src="../../assets/logo.svg" alt="">
+        <img src="../../assets/logo.svg" alt="" />
       </div>
     </div>
     <div class="col-6">
-
-      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid">
-
+      <form [formGroup]="loginForm" (ngSubmit)="(loginForm.valid)">
         <div class="title">
           <span>CLIENT PORTAL</span>
         </div>
 
         <mat-form-field appearance="outline">
           <mat-label>Username/Email</mat-label>
-          <input matInput type="email" formControlName="email" required="true">
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            required="true"
+          />
           <mat-error>Enter a valid Username/Email</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" type="password" formControlName="password"
-            required="true">
-          <button class="hide-button" mat-icon-button matSuffix (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            type="password"
+            formControlName="password"
+            required="true"
+          />
+          <button
+            class="hide-button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
           <mat-error>Password is required</mat-error>
         </mat-form-field>
 
         <div class="btn-lk">
           <a mat-button href="#">Forgot Password?</a>
-          <p>No account yet? <a mat-button [routerLink]="['/signup']">Sign up</a></p>
-
+          <p>
+            No account yet? <a mat-button [routerLink]="['/signup']">Sign up</a>
+          </p>
         </div>
 
-        <button class="form_btn" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid||clicked"
-          (click)="login(); clicked = true">
+        <button
+          class="form_btn"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loginForm.invalid || clicked"
+          (click)="login(); clicked = true"
+        >
           <span *ngIf="clicked == false">Sign in</span>
           <span *ngIf="clicked == true">Loading</span>
           <mat-spinner [diameter]="30" *ngIf="clicked == true"></mat-spinner>
         </button>
-        <br><br><br>
-        <footer>TTS version 1.0.0 </footer>
+        <br /><br /><br />
+        <footer>TTS version 1.0.0</footer>
       </form>
     </div>
   </div>
