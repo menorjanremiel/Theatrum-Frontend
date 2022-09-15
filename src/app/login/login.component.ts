@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {Title} from "@angular/platform-browser";
+import { User } from './user';
+
 
 @Component({
   selector: 'app-login',
@@ -35,23 +35,51 @@ export class LoginComponent implements OnInit {
     }
     
       this.data.apiRequest('/api/auth/login', data).subscribe(
-        (res: any) => {
+        (res:any) => {
           if (res.status==true){
-             this.snackBar.open('Logged in successfully! Redirecting...', '', {
+                 this.snackBar.open('Logged in successfully! Redirecting...', '', {
+                  duration: 4000,
+                  verticalPosition: 'bottom',
+                  horizontalPosition: 'center',
+                });
+                
+              setTimeout(() => {
+                this.route.navigate(['home']);
+              }, 1000);
+            }
+          },
+        (err: any) => {
+          if (err.ok==false){
+            this.snackBar.open('Login failed, Check your credentials', '', {
               duration: 4000,
               verticalPosition: 'bottom',
               horizontalPosition: 'center',
             });
-            this.route.navigate(['home']);
-            console.log(res.status);
-            console.log(res);
+            this.clicked = false;  
           }
-        }  
-      )
+        },
+      
+        // (res: any) => {
+        //   if (res.status==true){
+        //      this.snackBar.open('Logged in successfully! Redirecting...', '', {
+        //       duration: 4000,
+        //       verticalPosition: 'bottom',
+        //       horizontalPosition: 'center',
+        //     });
+            
+        //   setTimeout(() => {
+        //     this.route.navigate(['home']);
+        //   }, 1000);
+        // }else{
+         
+          
+        
+      
+        // }
+        // }
+    
+    
+      );
     }
   }
   
-  interface User {
-    email: string;
-    password: string;
-  }

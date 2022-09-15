@@ -50,10 +50,19 @@ export class SignupComponent implements OnInit {
                horizontalPosition: 'center',
              });
              this.route.navigate(['login']);
-             console.log(res.status);
-             console.log(res);
            } 
+         },
+         (err: any) => {
+          if (err.ok==false){
+            this.snackBar.open('The email has already been taken.', '', {
+             duration: 4000,
+             
+             verticalPosition: 'bottom',
+             horizontalPosition: 'center',
+           });
+           this.clicked = false;
          }
+        }
        )
      
   
